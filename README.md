@@ -74,7 +74,7 @@ marein_standard_headers_csrf:
     # the regular expression and protect everything except the specific api
     # path. For example with ['^(?!/api)'] as the value.
     #
-    # Type: Array of strings
+    # Type: string[]
     # Default: ['^/']
     protected_paths:
         - '^/me'
@@ -82,7 +82,7 @@ marein_standard_headers_csrf:
 
     # A list of origins that are trusted.
     #
-    # Type: Array of strings
+    # Type: string[]
     # Default: []
     allowed_origins:
         - 'http://my-domain.com'
@@ -92,13 +92,13 @@ marein_standard_headers_csrf:
 
     # Allowed origins are also compared to the referer header if there is no origin header.
     #
-    # Type: Boolean
+    # Type: bool
     # Default: true
     fallback_to_referer: true
 
     # Allows 'null' as the origin value. This covers some edge cases described by OWASP.
     #
-    # Type: Boolean
+    # Type: bool
     # Default: false
     allow_null_origin: false
 ```
