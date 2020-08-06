@@ -8,6 +8,7 @@ __Table of contents__
   * [How it works?](#how-it-works)
 * [Installation and requirements](#installation-and-requirements)
 * [Configuration](#configuration)
+* [Public api](#public-api)
 
 ## Overview
 
@@ -101,3 +102,8 @@ marein_standard_headers_csrf:
     # Default: false
     allow_null_origin: false
 ```
+
+## Public api
+
+Only the bundle configuration is part of the public api. Everything else can change and
+isn't considered a breaking change. Please don't use classes or services directly.
