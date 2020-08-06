@@ -68,7 +68,7 @@ marein_standard_headers_csrf:
     # If a match is found, the request is considered unsafe and must be checked against CSRF attacks.
     #
     # Note:
-    # If you manage an api that is not called from a browser and has
+    # If you manage an api that isn't called from a browser and has
     # an authentication mechanism other than cookies, you can also negate
     # the regular expression and protect everything except the specific api
     # path. For example with ['^(?!/api)'] as the value.
