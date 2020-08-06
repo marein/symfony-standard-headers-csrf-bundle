@@ -5,12 +5,37 @@
 __Table of contents__
 
 * [Overview](#overview)
+  * [How it works?](#how-it-works)
 * [Installation and requirements](#installation-and-requirements)
 * [Configuration](#configuration)
 
 ## Overview
 
 Protect symfony applications against CSRF attacks with the help of standard headers.
+
+The mechanism to prevent CSRF attacks which is used by this bundle can best be read under
+[OWASP](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html#verifying-origin-with-standard-headers).
+The technique is named "Verifying Origin With Standard Headers".
+
+### How it works?
+
+This bundle is based on the headers `Host`, `Origin` and `Referer`. They're part of the
+[forbidden headers](https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_header_name)
+and cannot be changed programmatically with a standard browser. Please read the
+[OWASP](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html#verifying-origin-with-standard-headers)
+carefully as this technique may not work in all cases.
+
+This bundle returns a status code `403` if the request isn't safe.
+A request is safe if at least one of the following criteria is met:
+* the http method is a safe http method.
+* the request path doesn't match one of the `protected_paths` from the configuration.
+* the origin header matches the `Host` header or one of the `allowed_origins` from the configuration.
+* `fallback_to_referer` is enabled and the `Referer` header matches the `Host`
+header or one of the `allowed_origins` from configuration.
+* `allow_null_origin` is enabled and the `Origin` header is equal to `"null"`.
+
+If there're trusted proxies configured in your symfony application, the header `X-Forwarded-Host`
+will be replaced by the `Host` header.
 
 ## Installation and requirements
 
