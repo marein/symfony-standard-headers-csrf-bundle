@@ -24,7 +24,7 @@ This bundle is based on the headers `Host`, `Origin` and `Referer`. They're part
 [forbidden headers](https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_header_name)
 and cannot be changed programmatically with a standard browser. Please read the
 [OWASP](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html#verifying-origin-with-standard-headers)
-carefully as this technique may not work in all cases.
+page carefully as this technique may not work in all cases.
 
 This bundle returns a status code `403` if the request isn't safe.
 A request is safe if at least one of the following criteria is met:
@@ -32,11 +32,11 @@ A request is safe if at least one of the following criteria is met:
 * the request path doesn't match one of the `protected_paths` from the configuration.
 * the origin header matches the `Host` header or one of the `allowed_origins` from the configuration.
 * `fallback_to_referer` is enabled and the `Referer` header matches the `Host`
-header or one of the `allowed_origins` from configuration.
+header or one of the `allowed_origins` from the configuration.
 * `allow_null_origin` is enabled and the `Origin` header is equal to `"null"`.
 
-If there're trusted proxies configured in your symfony application, the header `X-Forwarded-Host`
-will be replaced by the `Host` header.
+If there're trusted proxies configured in your symfony application,
+`X-Forwarded-Host` is used instead of `Host`.
 
 ## Installation and requirements
 
@@ -90,13 +90,13 @@ marein_standard_headers_csrf:
         - 'http://my-other-domain.com'
         - 'https://my-other-domain.com'
 
-    # Allowed origins are also compared to the referer header if there is no origin header.
+    # Allowed origins are also compared to the referer header if there's no origin header.
     #
     # Type: bool
     # Default: true
     fallback_to_referer: true
 
-    # Allows 'null' as the origin value. This covers some edge cases described by OWASP.
+    # Allows "null" as the origin value. This covers some edge cases described by OWASP.
     #
     # Type: bool
     # Default: false
@@ -106,4 +106,4 @@ marein_standard_headers_csrf:
 ## Public api
 
 Only the bundle configuration is part of the public api. Everything else can change and
-isn't considered a breaking change. Please don't use classes or services directly.
+is not considered a breaking change. Please don't use classes or services directly.
