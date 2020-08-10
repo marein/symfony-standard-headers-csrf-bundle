@@ -17,9 +17,8 @@ final class Configuration implements ConfigurationInterface
 
         $treeBuilder->getRootNode()
             ->children()
-                ->arrayNode('protected_paths')
+                ->arrayNode('allowed_paths')
                     ->scalarPrototype()->end()
-                    ->defaultValue(['^/'])
                 ->end()
                 ->arrayNode('allowed_origins')
                     ->scalarPrototype()->end()

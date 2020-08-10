@@ -29,7 +29,7 @@ page carefully as this technique may not work in all cases.
 This bundle returns a status code `403` if the request isn't safe.
 A request is safe if at least one of the following criteria is met:
 * the http method is a safe http method.
-* the request path doesn't match one of the `protected_paths` from the configuration.
+* the request path matches one of the `allowed_paths` from the configuration.
 * the origin header matches the `Host` header or one of the `allowed_origins` from the configuration.
 * `fallback_to_referer` is enabled and the `Referer` header matches the `Host`
 header or one of the `allowed_origins` from the configuration.
@@ -66,19 +66,14 @@ This is an example of all configurations in yaml format.
 ```yaml
 marein_standard_headers_csrf:
     # A list of regular expressions that are tested against the URL path.
-    # If a match is found, the request is considered unsafe and must be checked against CSRF attacks.
-    #
-    # Note:
-    # If you manage an api that isn't called from a browser and has
-    # an authentication mechanism other than cookies, you can also negate
-    # the regular expression and protect everything except the specific api
-    # path. For example with ['^(?!/api)'] as the value.
+    # If a match is found, the request is considered safe and isn't
+    # checked against CSRF attacks. This is useful for apis that aren't
+    # vulnerable to CSRF.
     #
     # Type: string[]
-    # Default: ['^/']
-    protected_paths:
-        - '^/me'
-        - '^/user'
+    # Default: []
+    allowed_paths:
+        - '^/api'
 
     # A list of origins that are trusted.
     #

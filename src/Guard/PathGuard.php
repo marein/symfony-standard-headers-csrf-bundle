@@ -29,10 +29,10 @@ final class PathGuard implements Guard
     {
         foreach ($this->patterns as $pattern) {
             if (preg_match('#' . $pattern . '#', $request->getPathInfo())) {
-                return false;
+                return true;
             }
         }
 
-        return true;
+        return false;
     }
 }
