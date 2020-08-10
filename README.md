@@ -67,7 +67,7 @@ This is an example of all configurations in yaml format.
 marein_standard_headers_csrf:
     # A list of regular expressions that are tested against the URL path.
     # If a match is found, the request is considered safe and isn't
-    # checked against CSRF attacks. This is useful for apis that aren't
+    # checked against CSRF attacks. This is useful for paths that aren't
     # vulnerable to CSRF.
     #
     # Type: string[]
