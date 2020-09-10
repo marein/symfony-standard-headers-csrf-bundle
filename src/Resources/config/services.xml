@@ -18,7 +18,9 @@
                 <argument type="service"
                           id="marein_standard_headers_csrf.guard.path_guard"/>
                 <argument type="service"
-                          id="marein_standard_headers_csrf.guard.origin_header_guard"/>
+                          id="marein_standard_headers_csrf.guard.origin_header_against_host_header_guard"/>
+                <argument type="service"
+                          id="marein_standard_headers_csrf.guard.origin_header_against_allowed_origins_guard"/>
                 <argument type="service"
                           id="marein_standard_headers_csrf.guard.referer_header_guard"/>
                 <argument type="service"
@@ -36,8 +38,11 @@
             <argument/>
         </service>
 
-        <service id="marein_standard_headers_csrf.guard.origin_header_guard"
-                 class="Marein\StandardHeadersCsrfBundle\Guard\OriginHeaderGuard">
+        <service id="marein_standard_headers_csrf.guard.origin_header_against_host_header_guard"
+                 class="Marein\StandardHeadersCsrfBundle\Guard\OriginHeaderAgainstHostHeaderGuard"/>
+
+        <service id="marein_standard_headers_csrf.guard.origin_header_against_allowed_origins_guard"
+                 class="Marein\StandardHeadersCsrfBundle\Guard\OriginHeaderAgainstAllowedOriginsGuard">
             <argument/>
         </service>
 
