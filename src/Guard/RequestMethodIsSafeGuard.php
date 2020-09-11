@@ -5,7 +5,7 @@ namespace Marein\StandardHeadersCsrfBundle\Guard;
 
 use Symfony\Component\HttpFoundation\Request;
 
-final class SafeMethodGuard implements Guard
+final class RequestMethodIsSafeGuard implements Guard
 {
     /**
      * @inheritdoc

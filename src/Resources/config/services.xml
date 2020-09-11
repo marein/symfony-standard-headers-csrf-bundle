@@ -14,7 +14,7 @@
                  class="Marein\StandardHeadersCsrfBundle\Guard\LogicalOrGuard">
             <argument type="collection">
                 <argument type="service"
-                          id="marein_standard_headers_csrf.guard.safe_method_guard"/>
+                          id="marein_standard_headers_csrf.guard.request_method_is_safe_guard"/>
                 <argument type="service"
                           id="marein_standard_headers_csrf.guard.path_guard"/>
                 <argument type="service"
@@ -28,8 +28,8 @@
             </argument>
         </service>
 
-        <service id="marein_standard_headers_csrf.guard.safe_method_guard"
-                 class="Marein\StandardHeadersCsrfBundle\Guard\SafeMethodGuard">
+        <service id="marein_standard_headers_csrf.guard.request_method_is_safe_guard"
+                 class="Marein\StandardHeadersCsrfBundle\Guard\RequestMethodIsSafeGuard">
             <argument/>
         </service>
 
