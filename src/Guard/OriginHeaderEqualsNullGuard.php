@@ -5,7 +5,7 @@ namespace Marein\StandardHeadersCsrfBundle\Guard;
 
 use Symfony\Component\HttpFoundation\Request;
 
-final class NullOriginHeaderGuard implements Guard
+final class OriginHeaderEqualsNullGuard implements Guard
 {
     /**
      * @inheritdoc

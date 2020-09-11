@@ -24,7 +24,7 @@
                 <argument type="service"
                           id="marein_standard_headers_csrf.guard.referer_header_guard"/>
                 <argument type="service"
-                          id="marein_standard_headers_csrf.guard.null_origin_header_guard"/>
+                          id="marein_standard_headers_csrf.guard.origin_header_equals_null_guard"/>
             </argument>
         </service>
 
@@ -72,12 +72,12 @@
             <argument/>
         </service>
 
-        <service id="marein_standard_headers_csrf.guard.null_origin_header_guard"
-                 class="Marein\StandardHeadersCsrfBundle\Guard\NullOriginHeaderGuard"/>
+        <service id="marein_standard_headers_csrf.guard.origin_header_equals_null_guard"
+                 class="Marein\StandardHeadersCsrfBundle\Guard\OriginHeaderEqualsNullGuard"/>
 
-        <service id="marein_standard_headers_csrf.guard.null_origin_header_guard.feature_toggle"
+        <service id="marein_standard_headers_csrf.guard.origin_header_equals_null_guard.feature_toggle"
                  class="Marein\StandardHeadersCsrfBundle\Guard\FeatureToggleGuard"
-                 decorates="marein_standard_headers_csrf.guard.null_origin_header_guard">
+                 decorates="marein_standard_headers_csrf.guard.origin_header_equals_null_guard">
             <argument/>
             <argument type="service"
                       id=".inner"/>
