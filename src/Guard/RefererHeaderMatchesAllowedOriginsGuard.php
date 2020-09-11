@@ -13,7 +13,7 @@ final class RefererHeaderMatchesAllowedOriginsGuard implements Guard
     private array $allowedOrigins;
 
     /**
-     * RefererHeaderGuard constructor.
+     * RefererHeaderMatchesAllowedOriginsGuard constructor.
      *
      * @param string[] $allowedOrigins
      */

@@ -13,7 +13,7 @@ final class RequestPathMatchesAllowedPathsGuard implements Guard
     private array $patterns;
 
     /**
-     * PathGuard constructor.
+     * RequestPathMatchesAllowedPathsGuard constructor.
      *
      * @param string[] $patterns
      */

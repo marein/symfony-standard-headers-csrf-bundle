@@ -13,7 +13,7 @@ final class OriginHeaderMatchesAllowedOriginsGuard implements Guard
     private array $allowedOrigins;
 
     /**
-     * OriginHeaderGuard constructor.
+     * OriginHeaderMatchesAllowedOriginsGuard constructor.
      *
      * @param string[] $allowedOrigins
      */
