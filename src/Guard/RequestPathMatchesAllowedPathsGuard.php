@@ -5,7 +5,7 @@ namespace Marein\StandardHeadersCsrfBundle\Guard;
 
 use Symfony\Component\HttpFoundation\Request;
 
-final class PathGuard implements Guard
+final class RequestPathMatchesAllowedPathsGuard implements Guard
 {
     /**
      * @var string[]
