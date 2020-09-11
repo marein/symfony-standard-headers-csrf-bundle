@@ -52,7 +52,7 @@
                 <argument type="service"
                           id="marein_standard_headers_csrf.guard.referer_header_equals_host_header_guard"/>
                 <argument type="service"
-                          id="marein_standard_headers_csrf.guard.referer_header_against_allowed_origins_guard"/>
+                          id="marein_standard_headers_csrf.guard.referer_header_matches_allowed_origins_guard"/>
             </argument>
         </service>
 
@@ -67,8 +67,8 @@
         <service id="marein_standard_headers_csrf.guard.referer_header_equals_host_header_guard"
                  class="Marein\StandardHeadersCsrfBundle\Guard\RefererHeaderEqualsHostHeaderGuard"/>
 
-        <service id="marein_standard_headers_csrf.guard.referer_header_against_allowed_origins_guard"
-                 class="Marein\StandardHeadersCsrfBundle\Guard\RefererHeaderAgainstAllowedOriginsGuard">
+        <service id="marein_standard_headers_csrf.guard.referer_header_matches_allowed_origins_guard"
+                 class="Marein\StandardHeadersCsrfBundle\Guard\RefererHeaderMatchesAllowedOriginsGuard">
             <argument/>
         </service>
 

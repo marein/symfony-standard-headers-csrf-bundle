@@ -5,7 +5,7 @@ namespace Marein\StandardHeadersCsrfBundle\Guard;
 
 use Symfony\Component\HttpFoundation\Request;
 
-final class RefererHeaderAgainstAllowedOriginsGuard implements Guard
+final class RefererHeaderMatchesAllowedOriginsGuard implements Guard
 {
     /**
      * @var string[]
