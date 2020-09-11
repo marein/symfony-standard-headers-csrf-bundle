@@ -5,7 +5,7 @@ namespace Marein\StandardHeadersCsrfBundle\Guard;
 
 use Symfony\Component\HttpFoundation\Request;
 
-final class RefererHeaderAgainstHostHeaderGuard implements Guard
+final class RefererHeaderEqualsHostHeaderGuard implements Guard
 {
     /**
      * @inheritdoc

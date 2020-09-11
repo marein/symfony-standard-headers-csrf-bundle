@@ -50,7 +50,7 @@
                  class="Marein\StandardHeadersCsrfBundle\Guard\LogicalOrGuard">
             <argument type="collection">
                 <argument type="service"
-                          id="marein_standard_headers_csrf.guard.referer_header_against_host_header_guard"/>
+                          id="marein_standard_headers_csrf.guard.referer_header_equals_host_header_guard"/>
                 <argument type="service"
                           id="marein_standard_headers_csrf.guard.referer_header_against_allowed_origins_guard"/>
             </argument>
@@ -64,8 +64,8 @@
                       id=".inner"/>
         </service>
 
-        <service id="marein_standard_headers_csrf.guard.referer_header_against_host_header_guard"
-                 class="Marein\StandardHeadersCsrfBundle\Guard\RefererHeaderAgainstHostHeaderGuard"/>
+        <service id="marein_standard_headers_csrf.guard.referer_header_equals_host_header_guard"
+                 class="Marein\StandardHeadersCsrfBundle\Guard\RefererHeaderEqualsHostHeaderGuard"/>
 
         <service id="marein_standard_headers_csrf.guard.referer_header_against_allowed_origins_guard"
                  class="Marein\StandardHeadersCsrfBundle\Guard\RefererHeaderAgainstAllowedOriginsGuard">
