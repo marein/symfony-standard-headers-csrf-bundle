@@ -49,6 +49,13 @@ final class DefaultConfigurationBundleTest extends KernelTestCase
             ),
             $this->createRequest(
                 'POST',
+                'http://localhost/user/profile',
+                '',
+                'http://localhosttrytoappend/test',
+                403
+            ),
+            $this->createRequest(
+                'POST',
                 'http://localhost:8080/user/profile',
                 'http://localhost:8080',
                 '',
