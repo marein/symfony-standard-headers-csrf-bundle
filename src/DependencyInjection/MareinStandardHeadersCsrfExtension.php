@@ -26,7 +26,7 @@ final class MareinStandardHeadersCsrfExtension extends Extension
         $container->getDefinition('marein_standard_headers_csrf.guard.path_guard')
             ->replaceArgument(0, $config['allowed_paths']);
 
-        $container->getDefinition('marein_standard_headers_csrf.guard.origin_header_against_allowed_origins_guard')
+        $container->getDefinition('marein_standard_headers_csrf.guard.origin_header_matches_allowed_origins_guard')
             ->replaceArgument(0, $config['allowed_origins']);
 
         $container->getDefinition('marein_standard_headers_csrf.guard.referer_header_against_allowed_origins_guard')
