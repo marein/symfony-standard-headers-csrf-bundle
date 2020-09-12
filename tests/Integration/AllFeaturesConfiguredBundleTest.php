@@ -77,6 +77,13 @@ final class AllFeaturesConfiguredBundleTest extends KernelTestCase
             ),
             $this->createRequest(
                 'POST',
+                'http://localhost/user/logout',
+                '',
+                'http://localhosttrytoappend/test',
+                403
+            ),
+            $this->createRequest(
+                'POST',
                 '/user/logout',
                 'http://not-allowed.origin',
                 '',

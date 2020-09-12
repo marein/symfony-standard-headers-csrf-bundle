@@ -5,7 +5,7 @@ namespace Marein\StandardHeadersCsrfBundle\Guard;
 
 use Symfony\Component\HttpFoundation\Request;
 
-final class OriginHeaderGuard implements Guard
+final class OriginHeaderMatchesAllowedOriginsGuard implements Guard
 {
     /**
      * @var string[]
@@ -13,7 +13,7 @@ final class OriginHeaderGuard implements Guard
     private array $allowedOrigins;
 
     /**
-     * OriginHeaderGuard constructor.
+     * OriginHeaderMatchesAllowedOriginsGuard constructor.
      *
      * @param string[] $allowedOrigins
      */
@@ -31,7 +31,7 @@ final class OriginHeaderGuard implements Guard
 
         return in_array(
             $origin,
-            [...$this->allowedOrigins, $request->getSchemeAndHttpHost()],
+            $this->allowedOrigins,
             true
         );
     }

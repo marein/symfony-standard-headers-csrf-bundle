@@ -23,19 +23,19 @@ final class MareinStandardHeadersCsrfExtension extends Extension
 
         $config = $this->processConfiguration(new Configuration(), $configs);
 
-        $container->getDefinition('marein_standard_headers_csrf.guard.path_guard')
+        $container->getDefinition('marein_standard_headers_csrf.url_pattern.allowed_paths')
             ->replaceArgument(0, $config['allowed_paths']);
 
-        $container->getDefinition('marein_standard_headers_csrf.guard.origin_header_guard')
+        $container->getDefinition('marein_standard_headers_csrf.guard.origin_header_matches_allowed_origins_guard')
             ->replaceArgument(0, $config['allowed_origins']);
 
-        $container->getDefinition('marein_standard_headers_csrf.guard.referer_header_guard')
+        $container->getDefinition('marein_standard_headers_csrf.guard.referer_header_matches_allowed_origins_guard')
             ->replaceArgument(0, $config['allowed_origins']);
 
         $container->getDefinition('marein_standard_headers_csrf.guard.referer_header_guard.feature_toggle')
             ->replaceArgument(0, $config['fallback_to_referer']);
 
-        $container->getDefinition('marein_standard_headers_csrf.guard.null_origin_header_guard.feature_toggle')
+        $container->getDefinition('marein_standard_headers_csrf.guard.origin_header_equals_null_guard.feature_toggle')
             ->replaceArgument(0, $config['allow_null_origin']);
     }
 }

@@ -5,13 +5,13 @@ namespace Marein\StandardHeadersCsrfBundle\Guard;
 
 use Symfony\Component\HttpFoundation\Request;
 
-final class SafeMethodGuard implements Guard
+final class OriginHeaderEqualsNullGuard implements Guard
 {
     /**
      * @inheritdoc
      */
     public function isSafe(Request $request): bool
     {
-        return $request->isMethodSafe();
+        return $request->headers->get('origin', '') === 'null';
     }
 }
