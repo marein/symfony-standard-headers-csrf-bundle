@@ -13,7 +13,7 @@ final class AllFeaturesConfiguredBundleTest extends KernelTestCase
         return new Kernel(
             [
                 'allowed_paths'       => ['^/api'],
-                'allowed_origins'     => ['http://allowed.origin'],
+                'allowed_origins'     => ['^https?://allowed\.origin$', '^https?://.+\.allowed\.origin$'],
                 'fallback_to_referer' => true,
                 'allow_null_origin'   => true
             ]
@@ -57,8 +57,36 @@ final class AllFeaturesConfiguredBundleTest extends KernelTestCase
             $this->createRequest(
                 'POST',
                 '/user/profile',
+                'https://allowed.origin',
+                '',
+                200
+            ),
+            $this->createRequest(
+                'POST',
+                '/user/profile',
+                'https://sub.allowed.origin',
+                '',
+                200
+            ),
+            $this->createRequest(
+                'POST',
+                '/user/profile',
                 '',
                 'http://allowed.origin',
+                200
+            ),
+            $this->createRequest(
+                'POST',
+                '/user/profile',
+                '',
+                'https://allowed.origin',
+                200
+            ),
+            $this->createRequest(
+                'POST',
+                '/user/profile',
+                '',
+                'https://sub.allowed.origin',
                 200
             ),
             $this->createRequest(

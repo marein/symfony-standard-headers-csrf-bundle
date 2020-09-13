@@ -3,23 +3,24 @@ declare(strict_types=1);
 
 namespace Marein\StandardHeadersCsrfBundle\Guard;
 
+use Marein\StandardHeadersCsrfBundle\UrlPattern\UrlPattern;
 use Symfony\Component\HttpFoundation\Request;
 
-final class RefererHeaderMatchesAllowedOriginsGuard implements Guard
+final class RefererHeaderMatchesUrlPatternGuard implements Guard
 {
     /**
-     * @var string[]
+     * @var UrlPattern
      */
-    private array $allowedOrigins;
+    private UrlPattern $urlPattern;
 
     /**
-     * RefererHeaderMatchesAllowedOriginsGuard constructor.
+     * RefererHeaderMatchesUrlPatternGuard constructor.
      *
-     * @param string[] $allowedOrigins
+     * @param UrlPattern $urlPattern
      */
-    public function __construct(array $allowedOrigins)
+    public function __construct(UrlPattern $urlPattern)
     {
-        $this->allowedOrigins = $allowedOrigins;
+        $this->urlPattern = $urlPattern;
     }
 
     /**
@@ -27,10 +28,8 @@ final class RefererHeaderMatchesAllowedOriginsGuard implements Guard
      */
     public function isSafe(Request $request): bool
     {
-        return in_array(
-            $this->readRefererSchemeAndHttpHostFromRequest($request),
-            $this->allowedOrigins,
-            true
+        return $this->urlPattern->matches(
+            $this->readRefererSchemeAndHttpHostFromRequest($request)
         );
     }
 
