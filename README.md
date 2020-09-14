@@ -75,15 +75,14 @@ marein_standard_headers_csrf:
     allowed_paths:
         - '^/api'
 
-    # A list of origins that are trusted.
+    # A list of regular expressions that are used to check for trusted origins.
+    # Each entry is automatically surrounded by the delimiter #.
     #
     # Type: string[]
     # Default: []
     allowed_origins:
-        - 'http://my-domain.com'
-        - 'https://my-domain.com'
-        - 'http://my-other-domain.com'
-        - 'https://my-other-domain.com'
+        - '^https?://my-domain.com$'
+        - '^https?://(.*)my-other-domain-including-subdomains.com$'
 
     # Allowed origins are also compared to the referer header if there's no origin header.
     #

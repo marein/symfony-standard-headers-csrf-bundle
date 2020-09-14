@@ -15,6 +15,11 @@
             <argument/>
         </service>
 
+        <service id="marein_standard_headers_csrf.url_pattern.allowed_origins"
+                 class="Marein\StandardHeadersCsrfBundle\UrlPattern\MultipleUrlPattern">
+            <argument/>
+        </service>
+
         <service id="marein_standard_headers_csrf.guard"
                  class="Marein\StandardHeadersCsrfBundle\Guard\LogicalOrGuard">
             <argument type="collection">
@@ -47,8 +52,8 @@
                  class="Marein\StandardHeadersCsrfBundle\Guard\OriginHeaderEqualsHostHeaderGuard"/>
 
         <service id="marein_standard_headers_csrf.guard.origin_header_matches_allowed_origins_guard"
-                 class="Marein\StandardHeadersCsrfBundle\Guard\OriginHeaderMatchesAllowedOriginsGuard">
-            <argument/>
+                 class="Marein\StandardHeadersCsrfBundle\Guard\OriginHeaderMatchesUrlPatternGuard">
+            <argument type="service" id="marein_standard_headers_csrf.url_pattern.allowed_origins"/>
         </service>
 
         <service id="marein_standard_headers_csrf.guard.referer_header_guard"
@@ -73,8 +78,8 @@
                  class="Marein\StandardHeadersCsrfBundle\Guard\RefererHeaderEqualsHostHeaderGuard"/>
 
         <service id="marein_standard_headers_csrf.guard.referer_header_matches_allowed_origins_guard"
-                 class="Marein\StandardHeadersCsrfBundle\Guard\RefererHeaderMatchesAllowedOriginsGuard">
-            <argument/>
+                 class="Marein\StandardHeadersCsrfBundle\Guard\RefererHeaderMatchesUrlPatternGuard">
+            <argument type="service" id="marein_standard_headers_csrf.url_pattern.allowed_origins"/>
         </service>
 
         <service id="marein_standard_headers_csrf.guard.origin_header_equals_null_guard"
