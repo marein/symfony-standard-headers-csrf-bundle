@@ -30,7 +30,7 @@ final class MareinStandardHeadersCsrfExtension extends Extension
             ->replaceArgument(0, $config['allowed_origins']);
 
         $container->getDefinition('marein_standard_headers_csrf.guard.referer_header_guard.feature_toggle')
-            ->replaceArgument(0, $config['fallback_to_referer']);
+            ->replaceArgument(0, $config['allow_referer_header']);
 
         $container->getDefinition('marein_standard_headers_csrf.guard.origin_header_equals_null_guard.feature_toggle')
             ->replaceArgument(0, $config['allow_null_origin']);

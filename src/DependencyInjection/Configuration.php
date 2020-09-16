@@ -23,7 +23,7 @@ final class Configuration implements ConfigurationInterface
                 ->arrayNode('allowed_origins')
                     ->scalarPrototype()->end()
                 ->end()
-                ->booleanNode('fallback_to_referer')->defaultTrue()->end()
+                ->booleanNode('allow_referer_header')->defaultTrue()->end()
                 ->booleanNode('allow_null_origin')->defaultFalse()->end()
             ->end()
         ;

@@ -31,7 +31,7 @@ A request is safe if at least one of the following criteria is met:
 * the http method is a safe http method.
 * the request path matches one of the `allowed_paths` from the configuration.
 * the origin header matches the `Host` header or one of the `allowed_origins` from the configuration.
-* `fallback_to_referer` is enabled and the `Referer` header matches the `Host`
+* `allow_referer_header` is enabled and the `Referer` header matches the `Host`
 header or one of the `allowed_origins` from the configuration.
 * `allow_null_origin` is enabled and the `Origin` header is equal to `"null"`.
 
@@ -84,11 +84,11 @@ marein_standard_headers_csrf:
         - '^https?://my-domain.com$'
         - '^https?://(.*)my-other-domain-including-subdomains.com$'
 
-    # Allowed origins are also compared to the referer header if there's no origin header.
+    # The host header and allowed_origins are additionally compared to the referer header.
     #
     # Type: bool
     # Default: true
-    fallback_to_referer: true
+    allow_referer_header: true
 
     # Allows "null" as the origin value. This covers some edge cases described by OWASP.
     #

@@ -12,10 +12,10 @@ final class AllFeaturesConfiguredBundleTest extends KernelTestCase
     {
         return new Kernel(
             [
-                'allowed_paths'       => ['^/api'],
-                'allowed_origins'     => ['^https?://allowed\.origin$', '^https?://.+\.allowed\.origin$'],
-                'fallback_to_referer' => true,
-                'allow_null_origin'   => true
+                'allowed_paths'        => ['^/api'],
+                'allowed_origins'      => ['^https?://allowed\.origin$', '^https?://.+\.allowed\.origin$'],
+                'allow_referer_header' => true,
+                'allow_null_origin'    => true
             ]
         );
     }

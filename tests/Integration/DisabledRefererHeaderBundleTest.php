@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Marein\StandardHeadersCsrfBundle\Tests\Integration;
 
-final class DisabledRefererFallbackBundleTest extends KernelTestCase
+final class DisabledRefererHeaderBundleTest extends KernelTestCase
 {
     /**
      * @inheritdoc
@@ -12,7 +12,7 @@ final class DisabledRefererFallbackBundleTest extends KernelTestCase
     {
         return new Kernel(
             [
-                'fallback_to_referer' => false
+                'allow_referer_header' => false
             ]
         );
     }
