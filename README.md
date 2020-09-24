@@ -65,32 +65,30 @@ This is an example of all configurations in yaml format.
 
 ```yaml
 marein_standard_headers_csrf:
-    # A list of regular expressions that are tested against the URL path.
-    # If a match is found, the request is considered safe and isn't
-    # checked against CSRF attacks. This is useful for paths that aren't
-    # vulnerable to CSRF.
+    # List of regular expressions that are used to check for allowed request paths.
+    # Each entry is automatically surrounded by the delimiter #.
     #
     # Type: string[]
     # Default: []
     allowed_paths:
         - '^/api'
 
-    # A list of regular expressions that are used to check for trusted origins.
+    # List of regular expressions that are used to check for allowed origins.
     # Each entry is automatically surrounded by the delimiter #.
     #
     # Type: string[]
     # Default: []
     allowed_origins:
-        - '^https?://my-domain.com$'
-        - '^https?://(.*)my-other-domain-including-subdomains.com$'
+        - '^https?://my-domain\.com$'
+        - '^https?://.*my-other-domain-including-subdomains\.com$'
 
-    # Allowed origins are also compared to the referer header if there's no origin header.
+    # Switch to enable the comparison of the host header and allowed_origins with the referer header.
     #
     # Type: bool
     # Default: true
     fallback_to_referer: true
 
-    # Allows "null" as the origin value. This covers some edge cases described by OWASP.
+    # Switch to allow "null" as a valid origin header value.
     #
     # Type: bool
     # Default: false
