@@ -67,10 +67,7 @@ return static function (ContainerConfigurator $container) {
         ->set(
             'marein_standard_headers_csrf.guard.request_method_is_safe_guard',
             RequestMethodIsSafeGuard::class
-        )
-        ->args([
-            null
-        ]);
+        );
 
     $container->services()
         ->set(
