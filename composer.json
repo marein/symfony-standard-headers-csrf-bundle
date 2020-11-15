@@ -29,6 +29,7 @@
     "phpunit/phpunit": "^9.2",
     "symfony/framework-bundle": "^5.1",
     "symfony/browser-kit": "^5.1",
-    "squizlabs/php_codesniffer": "^3.5"
+    "squizlabs/php_codesniffer": "^3.5",
+    "phpstan/phpstan": "^0.12.55"
   }
 }

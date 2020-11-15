@@ -28,8 +28,8 @@ final class OriginHeaderMatchesUrlPatternGuard implements Guard
      */
     public function isSafe(Request $request): bool
     {
-        return  $this->urlPattern->matches(
-            $request->headers->get('origin', '')
+        return $this->urlPattern->matches(
+            (string)$request->headers->get('origin', '')
         );
     }
 }
