@@ -28,4 +28,5 @@ jobs:
       - name: Testsuite
         run: |
           vendor/bin/phpunit
-          vendor/bin/phpcs tests src --standard=PSR2
+          vendor/bin/phpcs
+          vendor/bin/phpstan analyse
