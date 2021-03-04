@@ -80,7 +80,7 @@ marein_standard_headers_csrf:
     # Default: []
     allowed_origins:
         - '^https?://my-domain\.com$'
-        - '^https?://.*my-other-domain-including-subdomains\.com$'
+        - '^https?://.*\.my-other-domain-including-subdomains\.com$'
 
     # Switch to enable the comparison of the host header and allowed_origins with the referer header.
     #
