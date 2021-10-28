@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Marein\StandardHeadersCsrfBundle\Tests\Integration;
@@ -41,7 +42,7 @@ abstract class KernelTestCase extends TestCase
      * @param string $path
      * @param string $origin
      * @param string $referer
-     * @param int    $expectedStatusCode
+     * @param int $expectedStatusCode
      *
      * @return array
      */

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Marein\StandardHeadersCsrfBundle\Guard;
@@ -20,7 +21,7 @@ final class FeatureToggleGuard implements Guard
     /**
      * FeatureToggleGuard constructor.
      *
-     * @param bool  $isEnabled
+     * @param bool $isEnabled
      * @param Guard $guard
      */
     public function __construct(bool $isEnabled, Guard $guard)

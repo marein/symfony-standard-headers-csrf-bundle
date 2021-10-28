@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Marein\StandardHeadersCsrfBundle\Tests\Integration;
@@ -12,10 +13,10 @@ final class AllFeaturesConfiguredBundleTest extends KernelTestCase
     {
         return new Kernel(
             [
-                'allowed_paths'       => ['^/api'],
-                'allowed_origins'     => ['^https?://allowed\.origin$', '^https?://.+\.allowed\.origin$'],
+                'allowed_paths' => ['^/api'],
+                'allowed_origins' => ['^https?://allowed\.origin$', '^https?://.+\.allowed\.origin$'],
                 'fallback_to_referer' => true,
-                'allow_null_origin'   => true
+                'allow_null_origin' => true
             ]
         );
     }
