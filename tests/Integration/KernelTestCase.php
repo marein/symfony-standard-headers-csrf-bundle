@@ -35,17 +35,6 @@ abstract class KernelTestCase extends TestCase
         $this->assertEquals($expectedStatusCode, $response->getStatusCode());
     }
 
-    /**
-     * Creates a test case for the data provider.
-     *
-     * @param string $method
-     * @param string $path
-     * @param string $origin
-     * @param string $referer
-     * @param int $expectedStatusCode
-     *
-     * @return array
-     */
     public function createRequest(
         string $method,
         string $path,
@@ -56,18 +45,7 @@ abstract class KernelTestCase extends TestCase
         return func_get_args();
     }
 
-    /**
-     * Create the kernel to test against.
-     *
-     * @return Kernel
-     */
     abstract protected function createKernel(): Kernel;
 
-    /**
-     * Return the data to perform the test against the kernel.
-     * Use createRequest for each test case.
-     *
-     * @return array
-     */
     abstract public function dataProvider(): array;
 }

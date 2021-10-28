@@ -8,9 +8,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 final class RequestMethodIsSafeGuard implements Guard
 {
-    /**
-     * @inheritdoc
-     */
     public function isSafe(Request $request): bool
     {
         return $request->isMethodSafe();

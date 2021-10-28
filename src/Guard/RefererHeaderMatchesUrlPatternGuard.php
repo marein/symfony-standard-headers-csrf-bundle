@@ -9,24 +9,13 @@ use Symfony\Component\HttpFoundation\Request;
 
 final class RefererHeaderMatchesUrlPatternGuard implements Guard
 {
-    /**
-     * @var UrlPattern
-     */
     private UrlPattern $urlPattern;
 
-    /**
-     * RefererHeaderMatchesUrlPatternGuard constructor.
-     *
-     * @param UrlPattern $urlPattern
-     */
     public function __construct(UrlPattern $urlPattern)
     {
         $this->urlPattern = $urlPattern;
     }
 
-    /**
-     * @inheritdoc
-     */
     public function isSafe(Request $request): bool
     {
         return $this->urlPattern->matches(
@@ -34,13 +23,6 @@ final class RefererHeaderMatchesUrlPatternGuard implements Guard
         );
     }
 
-    /**
-     * Returns the referer header in the same format as the origin header.
-     *
-     * @param Request $request
-     *
-     * @return string
-     */
     private function readRefererSchemeAndHttpHostFromRequest(Request $request): string
     {
         $components = (array)parse_url(

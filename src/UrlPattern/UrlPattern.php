@@ -10,10 +10,6 @@ interface UrlPattern
 
     /**
      * Uses # as the delimiter.
-     *
-     * @param string $url
-     *
-     * @return bool
      */
     public function matches(string $url): bool;
 }

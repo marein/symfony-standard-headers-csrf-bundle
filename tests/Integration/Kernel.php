@@ -19,21 +19,10 @@ final class Kernel extends BaseKernel
 {
     use MicroKernelTrait;
 
-    /**
-     * @var string
-     */
     private string $uniqueId;
 
-    /**
-     * @var array
-     */
     private array $bundleConfiguration;
 
-    /**
-     * Kernel constructor.
-     *
-     * @param array $bundleConfiguration
-     */
     public function __construct(array $bundleConfiguration)
     {
         parent::__construct('prod', false);
@@ -42,25 +31,16 @@ final class Kernel extends BaseKernel
         $this->bundleConfiguration = $bundleConfiguration;
     }
 
-    /**
-     * @inheritdoc
-     */
     public function getCacheDir(): string
     {
         return '/tmp/' . $this->uniqueId . '/cache';
     }
 
-    /**
-     * @inheritdoc
-     */
     public function getLogDir(): string
     {
         return '/tmp/' . $this->uniqueId . '/log';
     }
 
-    /**
-     * @inheritdoc
-     */
     public function registerBundles()
     {
         return [
@@ -69,9 +49,6 @@ final class Kernel extends BaseKernel
         ];
     }
 
-    /**
-     * @inheritdoc
-     */
     protected function configureRoutes(RouteCollectionBuilder $routeCollectionBuilder)
     {
         $routeCollectionBuilder->add('/', 'kernel::defaultAction', 'index');
@@ -80,9 +57,6 @@ final class Kernel extends BaseKernel
         $routeCollectionBuilder->add('/user/profile', 'kernel::defaultAction', 'user_login');
     }
 
-    /**
-     * @inheritdoc
-     */
     protected function configureContainer(ContainerBuilder $containerBuilder, LoaderInterface $loader)
     {
         $containerBuilder->loadFromExtension(

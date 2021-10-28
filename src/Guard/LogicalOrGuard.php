@@ -14,8 +14,6 @@ final class LogicalOrGuard implements Guard
     private array $guards;
 
     /**
-     * LogicalOrGuard constructor.
-     *
      * @param Guard[] $guards
      */
     public function __construct(array $guards)
@@ -23,9 +21,6 @@ final class LogicalOrGuard implements Guard
         $this->guards = $guards;
     }
 
-    /**
-     * @inheritdoc
-     */
     public function isSafe(Request $request): bool
     {
         foreach ($this->guards as $guard) {

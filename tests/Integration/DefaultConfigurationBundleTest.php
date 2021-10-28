@@ -6,17 +6,11 @@ namespace Marein\StandardHeadersCsrfBundle\Tests\Integration;
 
 final class DefaultConfigurationBundleTest extends KernelTestCase
 {
-    /**
-     * @inheritdoc
-     */
     protected function createKernel(): Kernel
     {
         return new Kernel([]);
     }
 
-    /**
-     * @inheritdoc
-     */
     public function dataProvider(): array
     {
         return [

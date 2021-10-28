@@ -12,8 +12,6 @@ final class MultipleUrlPattern implements UrlPattern
     private array $urlPatterns;
 
     /**
-     * MultipleUrlPattern constructor.
-     *
      * @param string[] $urlPatterns
      */
     public function __construct(array $urlPatterns)
@@ -21,9 +19,6 @@ final class MultipleUrlPattern implements UrlPattern
         $this->urlPatterns = $urlPatterns;
     }
 
-    /**
-     * @inheritdoc
-     */
     public function matches(string $url): bool
     {
         foreach ($this->urlPatterns as $expression) {

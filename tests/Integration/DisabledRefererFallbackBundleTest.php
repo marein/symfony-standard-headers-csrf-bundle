@@ -6,9 +6,6 @@ namespace Marein\StandardHeadersCsrfBundle\Tests\Integration;
 
 final class DisabledRefererFallbackBundleTest extends KernelTestCase
 {
-    /**
-     * @inheritdoc
-     */
     protected function createKernel(): Kernel
     {
         return new Kernel(
@@ -18,9 +15,6 @@ final class DisabledRefererFallbackBundleTest extends KernelTestCase
         );
     }
 
-    /**
-     * @inheritdoc
-     */
     public function dataProvider(): array
     {
         return [
