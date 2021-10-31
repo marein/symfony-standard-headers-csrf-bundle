@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Marein\StandardHeadersCsrfBundle\Guard;
@@ -7,9 +8,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 final class RefererHeaderEqualsHostHeaderGuard implements Guard
 {
-    /**
-     * @inheritdoc
-     */
     public function isSafe(Request $request): bool
     {
         $referer = $request->headers->get('referer', '');

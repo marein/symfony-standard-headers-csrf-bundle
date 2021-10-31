@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Marein\StandardHeadersCsrfBundle\DependencyInjection;
@@ -10,9 +11,6 @@ use Symfony\Component\DependencyInjection\Loader\PhpFileLoader;
 
 final class MareinStandardHeadersCsrfExtension extends Extension
 {
-    /**
-     * @inheritdoc
-     */
     public function load(array $configs, ContainerBuilder $container): void
     {
         $loader = new PhpFileLoader(
