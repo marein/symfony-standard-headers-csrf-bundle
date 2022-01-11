@@ -11,7 +11,13 @@ jobs:
       matrix:
         operating-system: [ubuntu-latest]
         php-version: ['7.4', '8.0']
-    name: ${{ matrix.php-version }}
+        symfony-version: ['^5.1', '^6.0']
+        exclude:
+          - php-version: '7.4'
+            symfony-version: '^6.0'
+    name: >-
+      ${{ matrix.php-version }} with
+      sf ${{ matrix.symfony-version }}
     runs-on: ${{ matrix.operating-system }}
     steps:
       - name: Checkout
@@ -23,7 +29,17 @@ jobs:
           php-version: ${{ matrix.php-version }}
 
       - name: Prepare
-        run: composer install
+        run: |
+          composer install
+          composer require \
+            symfony/config:${{ matrix.symfony-version }} \
+            symfony/dependency-injection:${{ matrix.symfony-version }} \
+            symfony/http-foundation:${{ matrix.symfony-version }} \
+            symfony/http-kernel:${{ matrix.symfony-version }} \
+            symfony/browser-kit:${{ matrix.symfony-version }} \
+            symfony/framework-bundle:${{ matrix.symfony-version }} \
+            --update-with-dependencies \
+            --no-interaction
 
       - name: Testsuite
         run: |
