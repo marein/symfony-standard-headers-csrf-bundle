@@ -58,7 +58,7 @@ final class Kernel extends BaseKernel
             ->controller('kernel::defaultAction')
             ->add('user_logout', '/user/logout')
             ->controller('kernel::defaultAction')
-            ->add('user_login', '/user/profile')
+            ->add('user_profile', '/user/profile')
             ->controller('kernel::defaultAction');
     }
 
