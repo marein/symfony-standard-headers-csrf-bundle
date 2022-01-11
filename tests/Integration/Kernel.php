@@ -13,7 +13,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Kernel as BaseKernel;
-use Symfony\Component\Routing\RouteCollectionBuilder;
+use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
 
 final class Kernel extends BaseKernel
 {
@@ -41,7 +41,7 @@ final class Kernel extends BaseKernel
         return '/tmp/' . $this->uniqueId . '/log';
     }
 
-    public function registerBundles()
+    public function registerBundles(): iterable
     {
         return [
             new FrameworkBundle(),
@@ -49,12 +49,17 @@ final class Kernel extends BaseKernel
         ];
     }
 
-    protected function configureRoutes(RouteCollectionBuilder $routeCollectionBuilder)
+    protected function configureRoutes(RoutingConfigurator $routingConfigurator)
     {
-        $routeCollectionBuilder->add('/', 'kernel::defaultAction', 'index');
-        $routeCollectionBuilder->add('/api/users', 'kernel::defaultAction', 'api_users');
-        $routeCollectionBuilder->add('/user/logout', 'kernel::defaultAction', 'user_logout');
-        $routeCollectionBuilder->add('/user/profile', 'kernel::defaultAction', 'user_login');
+        $routingConfigurator
+            ->add('index', '/')
+            ->controller('kernel::defaultAction')
+            ->add('api_users', '/api/users')
+            ->controller('kernel::defaultAction')
+            ->add('user_logout', '/user/logout')
+            ->controller('kernel::defaultAction')
+            ->add('user_login', '/user/profile')
+            ->controller('kernel::defaultAction');
     }
 
     protected function configureContainer(ContainerBuilder $containerBuilder, LoaderInterface $loader)
