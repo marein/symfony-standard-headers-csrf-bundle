@@ -8,7 +8,8 @@ final class AllFeaturesConfiguredBundleTest extends KernelTestCase
 {
     protected function createKernel(): Kernel
     {
-        return new Kernel(
+        static $kernel;
+        return $kernel ??= new Kernel(
             [
                 'allowed_paths' => ['^/api'],
                 'allowed_origins' => ['^https?://allowed\.origin$', '^https?://.+\.allowed\.origin$'],

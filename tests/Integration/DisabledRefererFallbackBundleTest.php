@@ -8,7 +8,8 @@ final class DisabledRefererFallbackBundleTest extends KernelTestCase
 {
     protected function createKernel(): Kernel
     {
-        return new Kernel(
+        static $kernel;
+        return $kernel ??= new Kernel(
             [
                 'fallback_to_referer' => false
             ]
