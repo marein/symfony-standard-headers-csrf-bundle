@@ -8,7 +8,8 @@ final class DefaultConfigurationBundleTest extends KernelTestCase
 {
     protected function createKernel(): Kernel
     {
-        return new Kernel([]);
+        static $kernel;
+        return $kernel ??= new Kernel([]);
     }
 
     public function dataProvider(): array

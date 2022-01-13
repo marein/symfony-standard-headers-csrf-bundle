@@ -20,15 +20,12 @@ abstract class KernelTestCase extends TestCase
         string $referer,
         int $expectedStatusCode
     ): void {
-        static $kernel;
-        $kernel ??= $this->createKernel();
-
         $serverParameters = [];
 
         $serverParameters['HTTP_ORIGIN'] = $origin;
         $serverParameters['HTTP_REFERER'] = $referer;
 
-        $response = $kernel->handle(
+        $response = $this->createKernel()->handle(
             Request::create($path, $method, [], [], [], $serverParameters)
         );
 

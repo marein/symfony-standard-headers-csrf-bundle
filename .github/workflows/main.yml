@@ -10,7 +10,7 @@ jobs:
     strategy:
       matrix:
         operating-system: [ubuntu-latest]
-        php-version: ['7.4', '8.0']
+        php-version: ['7.4', '8.0', '8.1']
         symfony-version: ['^5.1', '^6.0']
         exclude:
           - php-version: '7.4'
