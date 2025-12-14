@@ -11,6 +11,7 @@ final class Configuration implements ConfigurationInterface
 {
     public function getConfigTreeBuilder(): TreeBuilder
     {
+        /** @var TreeBuilder<'array'> $treeBuilder */
         $treeBuilder = new TreeBuilder('marein_standard_headers_csrf');
 
         $treeBuilder->getRootNode()

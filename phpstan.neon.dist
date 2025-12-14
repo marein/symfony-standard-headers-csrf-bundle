@@ -9,6 +9,10 @@ parameters:
       path: src/DependencyInjection/Configuration.php
       count: 1
     -
+      message: '#^PHPDoc tag @var for variable \$treeBuilder contains generic type#'
+      path: src/DependencyInjection/Configuration.php
+      count: 1
+    -
       message: '#^Method [^\s]+ has parameter [^\s]+ with no value type specified in iterable type array\.$#'
       path: src/DependencyInjection/MareinStandardHeadersCsrfExtension.php
       count: 1
