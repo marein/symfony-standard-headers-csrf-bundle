@@ -10,6 +10,7 @@ jobs:
     strategy:
       matrix:
         operating-system: [ubuntu-latest]
+        dependencies: ['highest', 'lowest']
         php-version: ['7.4', '8.0', '8.1', '8.2', '8.3', '8.4', '8.5']
         symfony-version: ['^5.1', '^6.0', '^7.0', '^8.0']
         exclude:
@@ -36,6 +37,7 @@ jobs:
     name: >-
       ${{ matrix.php-version }} with
       sf ${{ matrix.symfony-version }}
+      (${{ matrix.dependencies }})
     runs-on: ${{ matrix.operating-system }}
     steps:
       - name: Checkout
@@ -48,7 +50,6 @@ jobs:
 
       - name: Prepare
         run: |
-          composer install
           composer require \
             symfony/config:${{ matrix.symfony-version }} \
             symfony/dependency-injection:${{ matrix.symfony-version }} \
@@ -56,8 +57,9 @@ jobs:
             symfony/http-kernel:${{ matrix.symfony-version }} \
             symfony/browser-kit:${{ matrix.symfony-version }} \
             symfony/framework-bundle:${{ matrix.symfony-version }} \
-            --update-with-dependencies \
+            --no-update \
             --no-interaction
+          composer update ${{ matrix.dependencies == 'lowest' && '--prefer-lowest' || '' }} --no-interaction
 
       - name: Testsuite
         run: |
