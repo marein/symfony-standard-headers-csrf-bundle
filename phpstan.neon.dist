@@ -9,6 +9,15 @@ parameters:
       path: src/DependencyInjection/Configuration.php
       count: 1
     -
+      message: '#^Cannot call method [a-zA-Z]+\(\) on mixed\.$#'
+      path: src/DependencyInjection/Configuration.php
+    -
+      message: '#^Call to function method_exists\(\) with [^\s]+ and ''isMainRequest'' will always evaluate to true\.$#'
+      path: src/EventListener/CsrfGuardListener.php
+    -
+      message: '#^Method [^\s]+::isMainRequest\(\) should return bool but returns mixed\.$#'
+      path: src/EventListener/CsrfGuardListener.php
+    -
       message: '#^Method [^\s]+ has parameter [^\s]+ with no value type specified in iterable type array\.$#'
       path: src/DependencyInjection/MareinStandardHeadersCsrfExtension.php
       count: 1
