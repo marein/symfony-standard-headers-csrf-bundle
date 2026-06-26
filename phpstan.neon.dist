@@ -12,6 +12,9 @@ parameters:
       message: '#^Cannot call method [a-zA-Z]+\(\) on mixed\.$#'
       path: src/DependencyInjection/Configuration.php
     -
+      message: '#^Method [^\s]+::getConfigTreeBuilder\(\) return type with generic class [^\s]+ does not specify its types: T$#'
+      path: src/DependencyInjection/Configuration.php
+    -
       message: '#^Call to function method_exists\(\) with [^\s]+ and ''isMainRequest'' will always evaluate to true\.$#'
       path: src/EventListener/CsrfGuardListener.php
     -
